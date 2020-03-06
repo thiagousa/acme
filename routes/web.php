@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/posts/{slug}','PostsController@show');
+
