@@ -19,3 +19,7 @@ Route::get('/', function () {
 
 Route::get('/posts/{slug}','PostsController@show');
 
+Route::resource('articles', 'ArticlesController');
+
+
+
