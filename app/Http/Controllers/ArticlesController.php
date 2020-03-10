@@ -12,11 +12,12 @@ class ArticlesController extends Controller
     {
         $articles = Article::latest()->get();
 
-        return view('articles.index',['article' => $articles]);
+        return view('articles.index',['articles' => $articles]);
     }
 
 
     public function show(Article $article)
+
     {
         return view('articles.show',['article' => $article]);
     }
@@ -28,19 +29,43 @@ class ArticlesController extends Controller
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
-        Article::create($this->validateArticle());
-        return redirect('articles.index');
+        request()->validate([
+            'title'=> 'required',
+            'excerpt' => 'required',
+             'body'  => 'required'
+         ]);
+
+
+        Article::create([
+            'title' => request('title'),
+            'excerpt' => request('excerpt'),
+            'user_id' => 1,
+            'body' => request('body')
+        ]);
+
+
+
+        return redirect('articles');
+
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
 
+        return view('articles.edit',['article' => $article]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
+
+        $article->title = request('title');
+        $article->excerpt = request('excerpt');
+        $article->body = request('body');
+        $article->user_id = 1;
+        $article->save();
+        return redirect('articles/'.$article->id);
 
     }
 

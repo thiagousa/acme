@@ -6,39 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    <title>Hello, world!</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <title>Acme</title>
 </head>
 <body>
-<h1>Hello, world!</h1>
-<div class="alert alert-primary" role="alert">
-    A simple primary alert—check it out!
-</div>
-<div class="alert alert-secondary" role="alert">
-    A simple secondary alert—check it out!
-</div>
-<div class="alert alert-success" role="alert">
-    A simple success alert—check it out!
-</div>
-<div class="alert alert-danger" role="alert">
-    A simple danger alert—check it out!
-</div>
-<div class="alert alert-warning" role="alert">
-    A simple warning alert—check it out!
-</div>
-<div class="alert alert-info" role="alert">
-    A simple info alert—check it out!
-</div>
-<div class="alert alert-light" role="alert">
-    A simple light alert—check it out!
-</div>
-<div class="alert alert-dark" role="alert">
-    A simple dark alert—check it out!
-</div>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ url('/articles') }}">Acme</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item {{Request::path()==='/' ? 'active':''}}">
+                <a  class="nav-link" href="{{ url('/') }}">Home </a>
+            </li>
+            <li class="nav-item {{Request::path()==='articles' ? 'active':''}}">
+                <a class="nav-link" href="{{ url('/articles') }}" >Articles</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</header>
+<main role="main" class="container">
+@yield('content')
+
+</main>
+<footer class="footer bg-dark">
+    <div class="container">
+
+    </div>
+</footer>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery-3.4.1.slim.min.js" ></script>
-<script src="js/popper.min.js" ></script>
-<script src="js/bootstrap.min.js" ></script>
+<script src="/js/jquery-3.4.1.slim.min.js" ></script>
+<script src="/js/popper.min.js" ></script>
+<script src="/js/bootstrap.min.js" ></script>
+
 </body>

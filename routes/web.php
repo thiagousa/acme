@@ -19,7 +19,19 @@ Route::get('/', function () {
 
 Route::get('/posts/{slug}','PostsController@show');
 
-Route::resource('articles', 'ArticlesController');
+// ARTICLES
 
+Route::get('articles', 'ArticlesController@index');
 
+Route::post('articles','ArticlesController@store');
+
+Route::get('articles/create','ArticlesController@create');
+
+Route::get('articles/{article}', 'ArticlesController@show');
+
+Route::get('articles/{article}/edit', 'ArticlesController@edit');
+
+Route::put('articles/{article}','ArticlesController@update');
+
+Route::delete('articles/{article}','ArticlesController@sdelete');
 
