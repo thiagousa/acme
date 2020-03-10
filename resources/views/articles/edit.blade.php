@@ -30,6 +30,7 @@
             <p class="alert alert-danger" >{{$errors->first('body')}}</p>
             @enderror
         </div>
+        <input type="hidden" name="user_id" value="1">
 
         <button type="submit" class="btn btn-primary">Submit</button>
 

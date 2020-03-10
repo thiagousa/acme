@@ -18,9 +18,9 @@
         </div>
 
                 <div class="row-cols-3">
-                    <div class="btn-group btn-group-lg" role="group" aria-label="..."><a href="{{ url('/articles/create') }}"> Add</a></div>
-                    <div class="btn-group btn-group-lg" role="group" aria-label="..."><a href="{{ url('/articles/'.$article->id.'/edit') }}"> Edit</a></div>
-                    <div class="btn-group btn-group-lg" role="group" aria-label="..."><a href="{{ url('/articles/'.$article->id.'/delete') }}"> Delete</a></div>
+                    <div class="btn-group btn-group-lg" role="group" aria-label="..."><a href="{{ route('articles.create')}}"> Add</a></div>
+                    <div class="btn-group btn-group-lg" role="group" aria-label="..."><a href="{{ route('articles.edit',$article) }}"> Edit</a></div>
+                    <div class="btn-group btn-group-lg" role="group" aria-label="..."><a href="{{ route('articles.destroy',$article) }}"> Delete</a></div>
                 </div>
 
 
