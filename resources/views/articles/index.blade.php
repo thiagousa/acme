@@ -5,7 +5,7 @@
     <div class="modal-header">
     <h1>ARTICLES</h1>
     </div>
-@foreach($articles as $article)
+@forelse($articles as $article)
 
     <div class="row">
 
@@ -22,7 +22,9 @@
         </div>
 
     </div>
+@empty
+    <p> No relevant artiicles yet.</p>
 
-@endforeach
+@endforelse
 @endsection
 
