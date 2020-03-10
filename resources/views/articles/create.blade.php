@@ -28,6 +28,21 @@
             <p class="alert alert-danger" >{{$errors->first('body')}}</p>
             @enderror
         </div>
+
+        <div class="form-group">
+            <label>Tags</label>
+           <select
+               name="tags[]" multiple>
+               @foreach($tags as $tag)
+
+                   <option value="{{$tag->id}}">{{$tag->name}}</option>
+
+                   @endforeach
+           </select>
+            @error('tags')
+            <p class="alert alert-danger" >{{$message}}</p>
+            @enderror
+        </div>
        <input type="hidden" name="user_id" value="1">
         <button type="submit" class="btn btn-primary">Submit</button>
 
