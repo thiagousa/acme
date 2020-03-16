@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts/{slug}','PostsController@show');
-
-// ARTICLES
+Route::resource('posts', 'PostsController');
 
 Route::get('articles', 'ArticlesController@index')->name('articles.index');
 

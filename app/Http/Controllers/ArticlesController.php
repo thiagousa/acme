@@ -40,6 +40,7 @@ class ArticlesController extends Controller
     {
 
         $articles = new Article($this->validateArticles());
+
         $articles->save();
 
         $articles->tags()->attach(request('tags'));
@@ -71,8 +72,7 @@ class ArticlesController extends Controller
             'title'=> 'required',
             'excerpt' => 'required',
             'body'  => 'required',
-            'user_id' => 'required',
-            'tags'=>'exists:tags,id|required'
+            'user_id' => 'required'
         ]);
     }
 }

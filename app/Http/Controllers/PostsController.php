@@ -15,7 +15,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::latest()->get();
+        return view('posts.index',['posts' => $posts]);
     }
 
     /**
@@ -45,21 +46,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+
+    public function show(Post $post)
+
     {
-        //$post = DB::table('posts')->where('slug',$slug)->first();
-        // $post = Post::where('slug',$slug)->first();
-        $post = Post::where('slug',$slug)->firstOrFail();
-
-
-      //  if (! $post){
-
-       //     abort(404);
-
-      //  }
-
-
-        return view('post', ['post' => $post]);
+        return view('posts.show',['post' => $post]);
     }
 
     /**
