@@ -25,6 +25,9 @@
             <li class="nav-item {{Request::path()==='articles' ? 'active':''}}">
                 <a class="nav-link" href="{{ url('/articles') }}" >Articles</a>
             </li>
+            <li class="nav-item {{Request::path()==='posts' ? 'active':''}}">
+                <a class="nav-link" href="{{ url('/posts') }}" >Posts</a>
+            </li>
         </ul>
     </div>
 </nav>

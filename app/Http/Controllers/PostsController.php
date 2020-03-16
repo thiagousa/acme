@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -37,7 +37,11 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post ($this->validatePost());
+
+        $post->save();
+
+        return redirect(route('posts.index'));
     }
 
     /**
@@ -85,5 +89,14 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function validatePost(){
+
+        return  request()->validate([
+            'title'=> 'required',
+            'body'  => 'required',
+            
+        ]);
     }
 }
